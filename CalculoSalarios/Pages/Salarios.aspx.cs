@@ -28,11 +28,13 @@ namespace CalculoSalarios.Pages
 
         protected void btnCalcular_Click(object sender, EventArgs e)
         {
-            if (decimal.TryParse(txtBonus.Text, out decimal bonus))
-            {
-                _service.CalcularSalarios(bonus);
-                CarregarGrid();
-            }
+            decimal bonus = 0m;
+
+            if (!string.IsNullOrWhiteSpace(txtBonus.Text))
+                decimal.TryParse(txtBonus.Text, out bonus);
+
+            _service.CalcularSalarios(bonus);
+            CarregarGrid();
         }
 
         protected void btnProximaPagina_Click(object sender, EventArgs e)
