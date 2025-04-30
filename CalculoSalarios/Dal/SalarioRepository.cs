@@ -56,7 +56,7 @@ namespace CalculoSalarios.DAL
             using (MySqlConnection conn = new MySqlConnection(connStr))
             {
                 conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand("calcularSalarios", conn))
+                using (MySqlCommand cmd = new MySqlCommand("calcular_salarios", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@p_bonus", bonus);
