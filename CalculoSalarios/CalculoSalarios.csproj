@@ -181,6 +181,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\PessoasCRUD.aspx" />
     <Content Include="Pages\Salarios.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -253,6 +254,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Bll\PessoaService.cs" />
     <Compile Include="Bll\SalarioService.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -261,6 +263,8 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dal\CargoRepository.cs" />
+    <Compile Include="Dal\PessoaRepository.cs" />
     <Compile Include="Dal\SalarioRepository.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -272,7 +276,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cargo.cs" />
+    <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Models\PessoaSalario.cs" />
+    <Compile Include="Pages\PessoasCRUD.aspx.cs">
+      <DependentUpon>PessoasCRUD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PessoasCRUD.aspx.designer.cs">
+      <DependentUpon>PessoasCRUD.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\Salarios.aspx.cs">
       <DependentUpon>Salarios.aspx</DependentUpon>

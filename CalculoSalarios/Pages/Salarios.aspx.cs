@@ -3,6 +3,7 @@ using CalculoSalarios.Models;
 using System;
 using System.Collections.Generic;
 
+
 namespace CalculoSalarios.Pages
 {
     public partial class Salarios : System.Web.UI.Page
@@ -29,13 +30,15 @@ namespace CalculoSalarios.Pages
         protected void btnCalcular_Click(object sender, EventArgs e)
         {
             decimal bonus = 0m;
-
+        
             if (!string.IsNullOrWhiteSpace(txtBonus.Text))
                 decimal.TryParse(txtBonus.Text, out bonus);
-
+        
             _service.CalcularSalarios(bonus);
             CarregarGrid();
         }
+        
+
 
         protected void btnProximaPagina_Click(object sender, EventArgs e)
         {

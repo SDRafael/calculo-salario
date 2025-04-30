@@ -2,6 +2,7 @@
 using CalculoSalarios.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CalculoSalarios.BLL
 {
@@ -26,5 +27,6 @@ namespace CalculoSalarios.BLL
         {
             _repository.CalcularSalarios(bonus);
         }
+        
     }
 }
