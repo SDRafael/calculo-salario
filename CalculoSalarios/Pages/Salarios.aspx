@@ -10,7 +10,7 @@
         <div>
             <h2>Salários</h2>
 
-            <!-- Link único para Gerenciar Pessoas -->
+            
             <asp:HyperLink ID="lnkPessoas" runat="server" NavigateUrl="PessoasCRUD.aspx" Text="Ir para cadastro de Pessoas" /><br /><br />
 
             <br /><br />

@@ -26,7 +26,7 @@ namespace CalculoSalarios.Pages
             if (!IsPostBack)
             {
                 CarregarCargos();
-                CarregarGrid(0); // Mostrar todos por padrão
+                CarregarGrid(0);
             }
         }
 

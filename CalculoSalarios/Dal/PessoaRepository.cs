@@ -40,7 +40,7 @@ namespace CalculoSalarios.DAL
             {
                 conn.Open();
 
-                string query = "UPDATE pessoa SET ativo = 0 WHERE email = @email AND ativo = 1"; // Apenas desativa se a pessoa for ativa
+                string query = "UPDATE pessoa SET ativo = 0 WHERE email = @email AND ativo = 1";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@email", email);

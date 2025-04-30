@@ -24,27 +24,7 @@ namespace CalculoSalarios.Pages
             ddlCargo.DataValueField = "Id";
             ddlCargo.DataBind();
         }
-
-        //protected void btnAdicionar_Click(object sender, EventArgs e)
-        //{
-        //    var pessoa = new Pessoa
-        //    {
-        //        Nome = txtNome.Text.Trim(),
-        //        Cidade = txtCidade.Text.Trim(),
-        //        Email = txtEmail.Text.Trim(),
-        //        Cep = txtCep.Text.Trim(),
-        //        Endereco = txtEndereco.Text.Trim(),
-        //        Pais = txtPais.Text.Trim(),
-        //        Usuario = txtUsuario.Text.Trim(),
-        //        Telefone = txtTelefone.Text.Trim(),
-        //        DataNascimento = DateTime.Parse(txtDataNascimento.Text),
-        //        CargoId = int.Parse(ddlCargo.SelectedValue)
-        //    };
-        //
-        //    pessoaService.AdicionarPessoa(pessoa);
-        //    lblMensagem.Text = "Pessoa adicionada com sucesso!";
-        //    LimparCampos();
-        //}
+ 
         protected void btnAdicionar_Click(object sender, EventArgs e)
         {
             try
