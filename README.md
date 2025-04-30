@@ -1,6 +1,6 @@
 # CalculoSalarios
 
-Sistema de controle de salários desenvolvido com **ASP.NET Web Forms**, utilizando **MySQL** como banco de dados. O projeto permite o cadastro, listagem, atualização e exclusão lógica de pessoas e cargos, além do cálculo de salários por meio de uma view otimizada que junta as principais informações relacionadas a um funcionário.
+Sistema de controle de salários desenvolvido com **ASP.NET Web Forms**, utilizando **MySQL** como banco de dados. O projeto permite o cadastro, listagem, atualização e exclusão lógica de pessoas e cargos, além do cálculo de salários que junta as principais informações relacionadas a um funcionário.
 
 ## 📌 Objetivo
 
