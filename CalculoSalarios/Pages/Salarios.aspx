@@ -14,6 +14,8 @@
             <asp:HyperLink ID="lnkPessoas" runat="server" NavigateUrl="PessoasCRUD.aspx" Text="Ir para cadastro de Pessoas" /><br /><br />
 
             <br /><br />
+            <asp:DropDownList ID="ddlCargos" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCargos_SelectedIndexChanged" />
+
 
             <asp:Label ID="Label1" runat="server" Text="Bônus: "></asp:Label>
             <asp:TextBox ID="txtBonus" runat="server" Width="100px"></asp:TextBox>
