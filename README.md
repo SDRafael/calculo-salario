@@ -36,7 +36,7 @@ Este projeto é uma aplicação ASP.NET Web Forms com integração ao banco de d
 - **cargo**: nome e salário base do cargo.
 - **pessoa_salario**: relaciona pessoa com salário registrado.
 - **vw_pessoa_salario_ativo** (VIEW): traz nome, email, salário e nome do cargo dos funcionários ativos.
-- **calcular_salarios*: procedure responsável pelo calculo dos salário e construir a tabela pessoa_salario com base no bonus e salario base.
+- **calcular_salarios**: procedure responsável pelo calculo dos salário e construir a tabela pessoa_salario com base no bonus e salario base.
 - **inserir_pessoa**: procedure responsável pelos novos registros na tabela pessoa.
 
 # Instruções 
