@@ -15,5 +15,6 @@ namespace CalculoSalarios.Models
         public string Telefone { get; set; }
         public DateTime DataNascimento { get; set; }
         public int CargoId { get; set; }
+        public bool Ativo { get; set; }
     }
 }

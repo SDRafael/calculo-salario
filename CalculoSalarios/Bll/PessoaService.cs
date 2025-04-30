@@ -1,6 +1,5 @@
 ﻿using CalculoSalarios.DAL;
 using CalculoSalarios.Models;
-using System;
 using System.Collections.Generic;
 
 namespace CalculoSalarios.BLL
@@ -24,6 +23,10 @@ namespace CalculoSalarios.BLL
         public List<Cargo> ObterCargosAtivos()
         {
             return cargoRepository.ObterCargosAtivos();
+        }
+        public void ExcluirPessoaPorEmail(string email)
+        {
+            pessoaRepository.ExcluirPessoaPorEmail(email);
         }
     }
 }

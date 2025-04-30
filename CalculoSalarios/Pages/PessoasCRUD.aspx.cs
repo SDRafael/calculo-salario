@@ -45,6 +45,22 @@ namespace CalculoSalarios.Pages
             lblMensagem.Text = "Pessoa adicionada com sucesso!";
             LimparCampos();
         }
+        protected void btnExcluir_Click(object sender, EventArgs e)
+        {
+            string email = txtEmailExcluir.Text.Trim();
+
+            try
+            {
+                pessoaService.ExcluirPessoaPorEmail(email);
+                lblMensagemExcluir.Text = "Pessoa excluída com sucesso.";
+                lblMensagemExcluir.ForeColor = System.Drawing.Color.Green;
+            }
+            catch (Exception ex)
+            {
+                lblMensagemExcluir.Text = ex.Message;
+                lblMensagemExcluir.ForeColor = System.Drawing.Color.Red;
+            }
+        }
 
         private void LimparCampos()
         {

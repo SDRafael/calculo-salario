@@ -9,6 +9,7 @@
     <form id="form1" runat="server">
         <div>
             <h2>Adicionar Nova Pessoa</h2>
+            <asp:HyperLink ID="lnkPessoas" runat="server" NavigateUrl="Salarios.aspx" Text="Salarios" /><br /><br />
 
             <asp:Label Text="Nome:" runat="server" /><br />
             <asp:TextBox ID="txtNome" runat="server" /><br /><br />
@@ -43,6 +44,16 @@
             <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar" OnClick="btnAdicionar_Click" /><br /><br />
 
             <asp:Label ID="lblMensagem" runat="server" ForeColor="Green" />
+        </div>
+        <div>
+            
+            <h3>Excluir Pessoa</h3>
+            <label for="txtEmailExcluir">Email da Pessoa:</label>
+            <asp:TextBox ID="txtEmailExcluir" runat="server" CssClass="form-control" />
+
+            <asp:Button ID="btnExcluir" runat="server" Text="Excluir Pessoa" OnClick="btnExcluir_Click" CssClass="btn btn-danger" />
+            <asp:Label ID="lblMensagemExcluir" runat="server" CssClass="text-danger" />
+
         </div>
     </form>
 </body>

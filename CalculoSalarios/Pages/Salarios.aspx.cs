@@ -119,14 +119,14 @@ namespace CalculoSalarios.Pages
                     PaginaAtual = 0;
                     break;
                 case "<<":
-                    if (BlocoAtual > 0)
+                    if (BlocoAtual >= 0)
                     {
                         BlocoAtual--;
                         PaginaAtual = BlocoAtual * paginasPorBloco;
                     }
                     break;
                 case ">>":
-                    if (BlocoAtual < (totalPaginas - 1) / paginasPorBloco)
+                    if (BlocoAtual <= (totalPaginas - 1) / paginasPorBloco)
                     {
                         BlocoAtual++;
                         PaginaAtual = BlocoAtual * paginasPorBloco;
