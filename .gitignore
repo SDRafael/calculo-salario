@@ -3,3 +3,5 @@
 **/web.Debug.config
 **/web.Release.config
 .vs/
+bin/
+obj/
