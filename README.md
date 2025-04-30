@@ -45,11 +45,8 @@ Este projeto é uma aplicação ASP.NET Web Forms com integração ao banco de d
 - **2**: Configurar o web.config para conexão com o BD
 - exemplo:
   <configuration>
-    <connectionStrings>
-        <add name="MySqlConnection"
-             connectionString="Server=localhost;Database=salario_calculo;Uid=SEU_USUARIO;Pwd=SUA_SENHA;"
-             providerName="MySql.Data.MySqlClient" />
-    </connectionStrings>
+    <pre> ```xml <connectionStrings> <add name="MySqlConnection" connectionString="Server=localhost;Database=salario_calculo;Uid=SEU_USUARIO;Pwd=SUA_SENHA;" providerName="MySql.Data.MySqlClient" /> 
+    </connectionStrings> ``` </pre>
   </configuration>
   
 - **3**: criar tabelas no banco => **ir ao diretório /Database**
