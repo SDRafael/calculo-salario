@@ -44,7 +44,7 @@ Este projeto é uma aplicação ASP.NET Web Forms com integração ao banco de d
 - **1**: Clonar este repositório
 - **2**: Configurar o web.config para conexão com o BD
 - exemplo:
-- <configuration>
+  <configuration>
     <connectionStrings>
         <add name="MySqlConnection"
              connectionString="Server=localhost;Database=salario_calculo;Uid=SEU_USUARIO;Pwd=SUA_SENHA;"
@@ -54,7 +54,6 @@ Este projeto é uma aplicação ASP.NET Web Forms com integração ao banco de d
   
 - **3**: criar tabelas no banco => **ir ao diretório /Database**
 - **4**: Com o banco configurado, rodar o projeto na IDE, no arquivo **Salarios.aspx**
-
 - **5**: O projeto contém uma tela inicial que exibe nome, email, cargo e salario. Há um link para a página de adicionar e excluir pessoas do banco.
 
 
