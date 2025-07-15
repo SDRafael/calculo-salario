@@ -24,9 +24,9 @@ namespace CalculoSalarios.BLL
         {
             return cargoRepository.ObterCargosAtivos();
         }
-        public void ExcluirPessoaPorEmail(string email)
+        public void ExcluirPessoaPorEmail(string matricula)
         {
-            pessoaRepository.ExcluirPessoaPorEmail(email);
+            pessoaRepository.ExcluirPessoaPorEmail(matricula);
         }
     }
 }

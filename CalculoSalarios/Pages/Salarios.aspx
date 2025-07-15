@@ -19,6 +19,8 @@
 
             <asp:Label ID="Label1" runat="server" Text="Bônus: "></asp:Label>
             <asp:TextBox ID="txtBonus" runat="server" Width="100px"></asp:TextBox>
+            <asp:Label ID="Label2" runat="server" Text="Descontos: "></asp:Label>
+            <asp:TextBox ID="txtDescontos" runat="server" Width="100px"></asp:TextBox>
             <asp:Button ID="btnCalcular" runat="server" Text="Calcular/Recalcular" OnClick="btnCalcular_Click" />
             <br /><br />
 

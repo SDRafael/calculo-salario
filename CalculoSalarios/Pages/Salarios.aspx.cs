@@ -26,28 +26,36 @@ namespace CalculoSalarios.Pages
             if (!IsPostBack)
             {
                 CarregarCargos();
-                CarregarGrid(0);
+                CarregarGrid();
             }
         }
 
         protected void btnCalcular_Click(object sender, EventArgs e)
         {
             decimal bonus = 0m;
+            decimal descontos = 0m;
 
             if (!string.IsNullOrWhiteSpace(txtBonus.Text))
+            {
                 decimal.TryParse(txtBonus.Text, out bonus);
+            }
 
-            _service.CalcularSalarios(bonus);
-            CarregarGrid(ObterCargoIdSelecionado());
+            if (!string.IsNullOrWhiteSpace(txtDescontos.Text))
+            {
+                decimal.TryParse(txtDescontos.Text, out descontos);
+            }
+
+            _service.CalcularSalarios(bonus, descontos);
+            CarregarGrid(ObterCargoSelecionado());
         }
 
         protected void btnProximaPagina_Click(object sender, EventArgs e)
         {
-            int totalPaginas = _service.ObterTotalPaginas(ObterCargoIdSelecionado());
+            int totalPaginas = _service.ObterTotalPaginas(ObterCargoSelecionado());
             if (PaginaAtual < totalPaginas - 1)
             {
                 PaginaAtual++;
-                CarregarGrid(ObterCargoIdSelecionado());
+                CarregarGrid(ObterCargoSelecionado());
             }
         }
 
@@ -56,20 +64,20 @@ namespace CalculoSalarios.Pages
             if (PaginaAtual > 0)
             {
                 PaginaAtual--;
-                CarregarGrid(ObterCargoIdSelecionado());
+                CarregarGrid(ObterCargoSelecionado());
             }
         }
 
-        private void CarregarGrid(int cargoId)
+        private void CarregarGrid(string cargo = "")
         {
-            List<PessoaSalario> salarios = _service.ObterSalarios(PaginaAtual, cargoId);
+            List<PessoaSalarioView> salarios = _service.ObterSalarios(PaginaAtual, cargo);
             gridSalarios.DataSource = salarios;
             gridSalarios.DataBind();
 
-            int totalPaginas = _service.ObterTotalPaginas(cargoId);
+            int totalPaginas = _service.ObterTotalPaginas(cargo);
             lblPaginaAtual.Text = $"Página {PaginaAtual + 1} de {totalPaginas}";
 
-            AtualizarPaginas(cargoId);
+            AtualizarPaginas(cargo);
         }
 
         private void CarregarCargos()
@@ -81,13 +89,13 @@ namespace CalculoSalarios.Pages
 
             foreach (var cargo in cargos)
             {
-                ddlCargos.Items.Add(new System.Web.UI.WebControls.ListItem(cargo.Nome, cargo.Id.ToString()));
+                ddlCargos.Items.Add(new System.Web.UI.WebControls.ListItem(cargo.Nome, cargo.Nome));
             }
         }
 
-        private void AtualizarPaginas(int cargoId)
+        private void AtualizarPaginas(string cargo)
         {
-            int totalPaginas = _service.ObterTotalPaginas(cargoId);
+            int totalPaginas = _service.ObterTotalPaginas(cargo);
             int paginasPorBloco = 10;
             int inicioPagina = BlocoAtual * paginasPorBloco + 1;
             int fimPagina = Math.Min(inicioPagina + paginasPorBloco - 1, totalPaginas);
@@ -120,7 +128,7 @@ namespace CalculoSalarios.Pages
         {
             string comando = e.CommandArgument.ToString();
             int paginasPorBloco = 10;
-            int totalPaginas = _service.ObterTotalPaginas(ObterCargoIdSelecionado());
+            int totalPaginas = _service.ObterTotalPaginas(ObterCargoSelecionado());
 
             switch (comando)
             {
@@ -154,19 +162,19 @@ namespace CalculoSalarios.Pages
                     break;
             }
 
-            CarregarGrid(ObterCargoIdSelecionado());
+            CarregarGrid(ObterCargoSelecionado());
         }
 
         protected void ddlCargos_SelectedIndexChanged(object sender, EventArgs e)
         {
             PaginaAtual = 0;
             BlocoAtual = 0;
-            CarregarGrid(ObterCargoIdSelecionado());
+            CarregarGrid(ObterCargoSelecionado());
         }
 
-        private int ObterCargoIdSelecionado()
+        private string ObterCargoSelecionado()
         {
-            return int.TryParse(ddlCargos.SelectedValue, out int id) ? id : 0;
+            return ddlCargos.SelectedValue != "0" ? ddlCargos.SelectedValue : "";
         }
     }
 }

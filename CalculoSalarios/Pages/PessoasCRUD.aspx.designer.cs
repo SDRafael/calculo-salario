@@ -69,13 +69,22 @@ namespace CalculoSalarios.Pages
         protected global::System.Web.UI.WebControls.TextBox txtCep;
 
         /// <summary>
-        /// txtEndereco control.
+        /// txtLogradouro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEndereco;
+        protected global::System.Web.UI.WebControls.TextBox txtLogradouro;
+
+        /// <summary>
+        /// txtNumero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNumero;
 
         /// <summary>
         /// txtPais control.
@@ -123,6 +132,15 @@ namespace CalculoSalarios.Pages
         protected global::System.Web.UI.WebControls.DropDownList ddlCargo;
 
         /// <summary>
+        /// txtCPF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCPF;
+
+        /// <summary>
         /// btnAdicionar control.
         /// </summary>
         /// <remarks>
@@ -141,13 +159,13 @@ namespace CalculoSalarios.Pages
         protected global::System.Web.UI.WebControls.Label lblMensagem;
 
         /// <summary>
-        /// txtEmailExcluir control.
+        /// txtMatriculaExcluir control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailExcluir;
+        protected global::System.Web.UI.WebControls.TextBox txtMatriculaExcluir;
 
         /// <summary>
         /// btnExcluir control.

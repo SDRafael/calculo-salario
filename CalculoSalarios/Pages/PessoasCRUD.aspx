@@ -22,9 +22,12 @@
 
             <asp:Label Text="CEP:" runat="server" /><br />
             <asp:TextBox ID="txtCep" runat="server" /><br /><br />
+            
+            <asp:Label Text="Logradouro:" runat="server" /><br />
+            <asp:TextBox ID="txtLogradouro" runat="server" /><br /><br />
 
-            <asp:Label Text="Endereço:" runat="server" /><br />
-            <asp:TextBox ID="txtEndereco" runat="server" /><br /><br />
+            <asp:Label Text="Numero:" runat="server" /><br />
+            <asp:TextBox ID="txtNumero" runat="server" /><br /><br />
 
             <asp:Label Text="País:" runat="server" /><br />
             <asp:TextBox ID="txtPais" runat="server" /><br /><br />
@@ -40,6 +43,9 @@
 
             <asp:Label Text="Cargo:" runat="server" /><br />
             <asp:DropDownList ID="ddlCargo" runat="server" /><br /><br />
+            
+            <asp:Label Text="CPF:" runat="server" /><br />
+            <asp:TextBox ID="txtCPF" runat="server" /><br /><br />
 
             <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar" OnClick="btnAdicionar_Click" /><br /><br />
 
@@ -48,8 +54,8 @@
         <div>
             
             <h3>Excluir Pessoa</h3>
-            <label for="txtEmailExcluir">Email da Pessoa:</label>
-            <asp:TextBox ID="txtEmailExcluir" runat="server" CssClass="form-control" />
+            <label for="txtMatricula">Matrícula da Pessoa:</label>
+            <asp:TextBox ID="txtMatriculaExcluir" runat="server" CssClass="form-control" />
 
             <asp:Button ID="btnExcluir" runat="server" Text="Excluir Pessoa" OnClick="btnExcluir_Click" CssClass="btn btn-danger" />
             <asp:Label ID="lblMensagemExcluir" runat="server" CssClass="text-danger" />

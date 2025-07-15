@@ -16,7 +16,7 @@ namespace CalculoSalarios.DAL
             using (MySqlConnection conn = new MySqlConnection(connStr))
             {
                 conn.Open();
-                string query = "SELECT id, nome, salario FROM cargo";
+                string query = "SELECT nome, salario FROM cargo";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -25,7 +25,6 @@ namespace CalculoSalarios.DAL
                     {
                         cargos.Add(new Cargo
                         {
-                            Id = reader.GetInt32("id"),
                             Nome = reader.GetString("nome"),
                             Salario = reader.GetDecimal("salario")
                         });

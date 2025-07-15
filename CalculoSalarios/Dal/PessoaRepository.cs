@@ -22,28 +22,30 @@ namespace CalculoSalarios.DAL
                     cmd.Parameters.AddWithValue("@p_cidade", pessoa.Cidade);
                     cmd.Parameters.AddWithValue("@p_email", pessoa.Email);
                     cmd.Parameters.AddWithValue("@p_cep", pessoa.Cep);
-                    cmd.Parameters.AddWithValue("@p_endereco", pessoa.Endereco);
+                    cmd.Parameters.AddWithValue("@p_logradouro", pessoa.Logradouro);
+                    cmd.Parameters.AddWithValue("@p_numero", pessoa.Numero);
                     cmd.Parameters.AddWithValue("@p_pais", pessoa.Pais);
                     cmd.Parameters.AddWithValue("@p_usuario", pessoa.Usuario);
                     cmd.Parameters.AddWithValue("@p_telefone", pessoa.Telefone);
                     cmd.Parameters.AddWithValue("@p_data_nascimento", pessoa.DataNascimento);
-                    cmd.Parameters.AddWithValue("@p_cargo_id", pessoa.CargoId);
+                    cmd.Parameters.AddWithValue("@p_cargo_nome", pessoa.Cargo);
+                    cmd.Parameters.AddWithValue("@p_cpf", pessoa.Cpf);
 
                     cmd.ExecuteNonQuery();
                 }
             }
         }
 
-        public void ExcluirPessoaPorEmail(string email)
+        public void ExcluirPessoaPorEmail(string matricula)
         {
             using (MySqlConnection conn = new MySqlConnection(connStr))
             {
                 conn.Open();
 
-                string query = "UPDATE pessoa SET ativo = 0 WHERE email = @email AND ativo = 1";
+                string query = "UPDATE pessoa SET ativo = 0 WHERE matricula = @matricula AND ativo = 1";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@matricula", matricula);
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected == 0)
                     {

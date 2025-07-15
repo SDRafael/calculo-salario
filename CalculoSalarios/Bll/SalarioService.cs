@@ -11,19 +11,19 @@ namespace CalculoSalarios.BLL
         private readonly SalarioRepository _repository = new SalarioRepository();
         private const int RegistrosPorPagina = 20;
                
-        public void CalcularSalarios(decimal bonus)
+        public void CalcularSalarios(decimal bonus, decimal descontos)
         {
-            _repository.CalcularSalarios(bonus);
+            _repository.CalcularSalarios(bonus, descontos);
         }
-        public List<PessoaSalario> ObterSalarios(int paginaAtual, int cargoId = 0)
+        public List<PessoaSalarioView> ObterSalarios(int paginaAtual, string cargo = "")
         {
             int offset = paginaAtual * RegistrosPorPagina;
-            return _repository.ObterSalarios(offset, RegistrosPorPagina, cargoId);
+            return _repository.ObterSalarios(offset, RegistrosPorPagina, cargo);
         }
 
-        public int ObterTotalPaginas(int cargoId = 0)
+        public int ObterTotalPaginas(string cargo = "")
         {
-            int totalRegistros = _repository.ObterTotalRegistros(cargoId);
+            int totalRegistros = _repository.ObterTotalRegistros(cargo);
             return (int)Math.Ceiling((double)totalRegistros / RegistrosPorPagina);
         }
 

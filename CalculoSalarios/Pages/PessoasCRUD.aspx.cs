@@ -21,7 +21,7 @@ namespace CalculoSalarios.Pages
             var cargos = pessoaService.ObterCargosAtivos();
             ddlCargo.DataSource = cargos;
             ddlCargo.DataTextField = "Nome";
-            ddlCargo.DataValueField = "Id";
+            ddlCargo.DataValueField = "Nome";
             ddlCargo.DataBind();
         }
  
@@ -42,8 +42,11 @@ namespace CalculoSalarios.Pages
                 if (string.IsNullOrWhiteSpace(txtCep.Text))
                     throw new Exception("O campo CEP é obrigatório.");
 
-                if (string.IsNullOrWhiteSpace(txtEndereco.Text))
-                    throw new Exception("O campo Endereço é obrigatório.");
+                if (string.IsNullOrWhiteSpace(txtLogradouro.Text))
+                    throw new Exception("O campo Logradouro é obrigatório.");
+                
+                if (string.IsNullOrWhiteSpace(txtNumero.Text))
+                    throw new Exception("O campo Numero é obrigatório.");
 
                 if (string.IsNullOrWhiteSpace(txtPais.Text))
                     throw new Exception("O campo País é obrigatório.");
@@ -60,8 +63,11 @@ namespace CalculoSalarios.Pages
                 if (!DateTime.TryParse(txtDataNascimento.Text, out DateTime dataNascimento))
                     throw new Exception("A Data de Nascimento está em formato inválido.");
 
-                if (string.IsNullOrEmpty(ddlCargo.SelectedValue) || ddlCargo.SelectedValue == "0")
+                if (string.IsNullOrWhiteSpace(ddlCargo.SelectedValue))
                     throw new Exception("Selecione um cargo válido.");
+                
+                if (string.IsNullOrWhiteSpace(txtCPF.Text))
+                    throw new Exception("O campo CPF é obrigatório.");
 
                 // Se tudo estiver ok, cria a nova pessoa
                 var pessoa = new Pessoa
@@ -70,12 +76,14 @@ namespace CalculoSalarios.Pages
                     Cidade = txtCidade.Text.Trim(),
                     Email = txtEmail.Text.Trim(),
                     Cep = txtCep.Text.Trim(),
-                    Endereco = txtEndereco.Text.Trim(),
+                    Logradouro = txtLogradouro.Text.Trim(),
+                    Numero = txtNumero.Text.Trim(),
                     Pais = txtPais.Text.Trim(),
                     Usuario = txtUsuario.Text.Trim(),
                     Telefone = txtTelefone.Text.Trim(),
                     DataNascimento = dataNascimento,
-                    CargoId = int.Parse(ddlCargo.SelectedValue)
+                    Cargo = ddlCargo.SelectedValue,
+                    Cpf = txtCPF.Text.Trim()
                 };
 
                 pessoaService.AdicionarPessoa(pessoa);
@@ -91,11 +99,11 @@ namespace CalculoSalarios.Pages
         }
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
-            string email = txtEmailExcluir.Text.Trim();
+            string matricula = txtMatriculaExcluir.Text.Trim();
 
             try
             {
-                pessoaService.ExcluirPessoaPorEmail(email);
+                pessoaService.ExcluirPessoaPorEmail(matricula);
                 lblMensagemExcluir.Text = "Pessoa excluída com sucesso.";
                 lblMensagemExcluir.ForeColor = System.Drawing.Color.Green;
             }
@@ -112,12 +120,13 @@ namespace CalculoSalarios.Pages
             txtCidade.Text = "";
             txtEmail.Text = "";
             txtCep.Text = "";
-            txtEndereco.Text = "";
+            txtLogradouro.Text = "";
+            txtNumero.Text = "";
             txtPais.Text = "";
             txtUsuario.Text = "";
             txtTelefone.Text = "";
             txtDataNascimento.Text = "";
-            ddlCargo.SelectedIndex = 0;
+            txtCPF.Text = "";
         }
     }
 }
